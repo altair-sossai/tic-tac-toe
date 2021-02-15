@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31005.135
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicTacToe", "TicTacToe\TicTacToe.csproj", "{3753EFC5-2954-4CF5-8178-B83B04FD7B74}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TicTacToe", "TicTacToe\TicTacToe.csproj", "{3753EFC5-2954-4CF5-8178-B83B04FD7B74}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicTacToe.UnitTest", "TicTacToe.UnitTest\TicTacToe.UnitTest.csproj", "{3B14A797-E7E7-4571-8C3F-7A88A78806C2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TicTacToe.UnitTest", "TicTacToe.UnitTest\TicTacToe.UnitTest.csproj", "{3B14A797-E7E7-4571-8C3F-7A88A78806C2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicTacToeApp", "TicTacToeApp\TicTacToeApp.csproj", "{3D7200B6-8301-47BB-84DD-559D645DCF72}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{3B14A797-E7E7-4571-8C3F-7A88A78806C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3B14A797-E7E7-4571-8C3F-7A88A78806C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3B14A797-E7E7-4571-8C3F-7A88A78806C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D7200B6-8301-47BB-84DD-559D645DCF72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D7200B6-8301-47BB-84DD-559D645DCF72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D7200B6-8301-47BB-84DD-559D645DCF72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D7200B6-8301-47BB-84DD-559D645DCF72}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

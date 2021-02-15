@@ -48,6 +48,9 @@ namespace TicTacToe
 
         public void Play(string player, int position)
         {
+            if (Status != Status.InGame)
+                return;
+
             if (CurrentPlayer.Name != player)
                 return;
 

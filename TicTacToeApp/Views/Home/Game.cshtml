@@ -1,0 +1,75 @@
+﻿@model TicTacToeApp.Models.GameInfo
+@{
+    var game = Model;
+}
+
+@section styles{
+    <style>
+        tbody, td, tfoot, th, thead, tr { border-width: 1px; }
+
+        td {
+            border: 1px solid black;
+            border-width: 1px;
+            height: 40px;
+            width: 40px;
+        }
+    </style>
+}
+
+<table id="hash">
+    <tr>
+        <td class="field" data-position="0" id="field-0"></td>
+        <td class="field" data-position="1" id="field-1"></td>
+        <td class="field" data-position="2" id="field-2"></td>
+    </tr>
+    <tr>
+        <td class="field" data-position="3" id="field-3"></td>
+        <td class="field" data-position="4" id="field-4"></td>
+        <td class="field" data-position="5" id="field-5"></td>
+    </tr>
+    <tr>
+        <td class="field" data-position="6" id="field-6"></td>
+        <td class="field" data-position="7" id="field-7"></td>
+        <td class="field" data-position="8" id="field-8"></td>
+    </tr>
+</table>
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            var gameId = "@game.GameId";
+            var hubConnectionBuilder = new signalR.HubConnectionBuilder();
+            var connection = hubConnectionBuilder.withUrl("/tic-tac-toe").build();
+
+            var updateHashTable = function(game) {
+                if (!game)
+                    return;
+
+                for (var i = 0; i < 9; i++) {
+                    $("#field-" + i).text(game.hash[i]);
+                }
+            };
+
+            $(".field").click(function() {
+                var position = $(this).data("position");
+                var command = {
+                    gameId: gameId,
+                    position: position
+                };
+
+                connection.invoke("Play", command);
+            });
+
+            connection.on("Update",
+                function (gameInfo) {
+                    updateHashTable(gameInfo.game);
+                });
+
+            connection
+                .start()
+                .then(function() {
+                    connection.invoke("Join", gameId);
+                });
+        });
+    </script>
+}
