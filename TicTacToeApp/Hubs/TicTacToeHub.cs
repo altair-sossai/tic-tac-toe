@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.SignalR;
 using TicTacToeApp.Hubs.Clients;
@@ -17,7 +18,7 @@ namespace TicTacToeApp.Hubs
 
             gameInfo.AddPlayer(Context.ConnectionId);
 
-            await Clients.Clients(gameInfo.Players).Update(gameInfo);
+            await Clients.Clients(gameInfo.Players.ToList()).Update(gameInfo);
         }
 
         public async Task Play(PlayCommand command)
@@ -31,7 +32,7 @@ namespace TicTacToeApp.Hubs
             
             game.Play(Context.ConnectionId, command.Position);
 
-            await Clients.Clients(gameInfo.Players).Update(gameInfo);
+            await Clients.Clients(gameInfo.Players.ToList()).Update(gameInfo);
         }
     }
 }

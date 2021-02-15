@@ -14,7 +14,7 @@ namespace TicTacToeApp.Models
 
         public Guid GameId { get; }
         public Game Game { get; private set; }
-        public HashSet<string> Players { get; } = new();
+        public HashSet<string> Players { get; } = new HashSet<string>();
 
         public void AddPlayer(string player)
         {
@@ -32,7 +32,7 @@ namespace TicTacToeApp.Models
 
     public class GameManager
     {
-        private static readonly Dictionary<Guid, GameInfo> Games = new();
+        private static readonly Dictionary<Guid, GameInfo> Games = new Dictionary<Guid, GameInfo>();
 
         public static Guid New()
         {
